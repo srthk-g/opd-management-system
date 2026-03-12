@@ -103,12 +103,13 @@ def inventory_dashboard():
 
 
 # REGISTER PATIENT
-@app.route("/register_patient", methods=["GET", "POST"])
+@app.route("/register_patient", methods=["GET","POST"])
 def register_patient():
 
     if request.method == "POST":
 
-        patient_id = request.form["patient_id"]
+        user_id = request.form["user_id"]
+        password = request.form["password"]
         name = request.form["name"]
         age = request.form["age"]
         gender = request.form["gender"]
@@ -117,14 +118,30 @@ def register_patient():
 
         db = get_db()
 
+        # 🔹 CHECK FOR DUPLICATE USER ID
+        existing = db.execute(
+            "SELECT * FROM users WHERE user_id=?",
+            (user_id,)
+        ).fetchone()
+
+        if existing:
+            return "User ID already taken. Please try another."
+
+        # 🔹 INSERT LOGIN ACCOUNT
+        db.execute(
+            "INSERT INTO users (user_id, password, role) VALUES (?, ?, ?)",
+            (user_id, password, "patient")
+        )
+
+        # 🔹 INSERT PATIENT DETAILS
         db.execute(
             "INSERT INTO patients VALUES (?,?,?,?,?,?)",
-            (patient_id, name, age, gender, phone, address)
+            (user_id, name, age, gender, phone, address)
         )
 
         db.commit()
 
-        return redirect("/patient_dashboard")
+        return redirect("/login")
 
     return render_template("register_patient.html")
 
