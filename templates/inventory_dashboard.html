@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Inventory Manager Dashboard</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+margin:0;
+background:#f4f6f9;
+}
+
+header{
+background:#198754;
+color:white;
+text-align:center;
+padding:30px 20px;
+}
+
+header h1{
+margin:0;
+font-size:32px;
+}
+
+header p{
+margin-top:8px;
+font-size:16px;
+}
+
+.container{
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:60px;
+}
+
+.card{
+background:white;
+width:250px;
+padding:30px;
+text-align:center;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card h3{
+margin-bottom:20px;
+}
+
+.btn{
+display:inline-block;
+padding:10px 20px;
+background:#198754;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-weight:bold;
+}
+
+.btn:hover{
+background:#146c43;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Inventory Manager Dashboard</h1>
+<p>Medicine & Consumables Inventory</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+<h3>View Medicines</h3>
+<a href="/view_medicines" class="btn">Open</a>
+</div>
+
+<div class="card">
+<h3>View Consumables</h3>
+<a href="/view_consumables" class="btn">Open</a>
+</div>
+
+<div class="card">
+<h3>Update Stock</h3>
+<a href="/update_stock" class="btn">Open</a>
+</div>
+
+</div>
+
+</body>
+</html>

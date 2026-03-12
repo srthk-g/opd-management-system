@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Medicines Inventory</title>
+
+<style>
+body{
+font-family:Arial;
+background:#f4f6f9;
+margin:0;
+}
+
+header{
+background:#198754;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+table{
+width:80%;
+margin:40px auto;
+border-collapse:collapse;
+background:white;
+}
+
+th,td{
+padding:12px;
+border:1px solid #ddd;
+text-align:center;
+}
+
+th{
+background:#198754;
+color:white;
+}
+
+.back{
+text-align:center;
+margin-top:20px;
+}
+
+a{
+text-decoration:none;
+color:#198754;
+font-weight:bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h2>Medicines Inventory</h2>
+</header>
+
+<table>
+
+<tr>
+<th>Medicine ID</th>
+<th>Name</th>
+<th>Stock</th>
+</tr>
+
+{% for m in medicines %}
+
+<tr>
+<td>{{ m.medicine_id }}</td>
+<td>{{ m.name }}</td>
+<td>{{ m.stock }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<div class="back">
+<a href="/inventory_dashboard">Back to Dashboard</a>
+</div>
+
+</body>
+</html>

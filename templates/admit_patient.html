@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Admit Patient</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<h2 style="background:#0b5ed7;color:white;padding:15px;">Admit Patient</h2>
+
+<div style="padding:40px;max-width:500px;">
+
+<form method="POST">
+
+Patient ID
+<input type="text" name="patient_id">
+
+<br><br>
+
+Select Bed
+
+<select name="bed_id">
+
+{% for b in beds %}
+
+<option value="{{ b.bed_id }}">
+{{ b.bed_id }} - {{ b.ward }}
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+Admission Date
+<input type="date" name="date">
+
+<br><br>
+
+<button type="submit">Admit Patient</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

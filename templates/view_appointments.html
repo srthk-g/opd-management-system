@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>View Appointments</title>
+
+<style>
+body{
+font-family:Arial;
+background:#f4f6f9;
+margin:0;
+}
+
+header{
+background:#0b5ed7;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+table{
+width:80%;
+margin:40px auto;
+border-collapse:collapse;
+background:white;
+}
+
+th,td{
+padding:12px;
+border:1px solid #ddd;
+text-align:center;
+}
+
+th{
+background:#0b5ed7;
+color:white;
+}
+
+.back{
+text-align:center;
+margin-top:20px;
+}
+
+a{
+text-decoration:none;
+color:#0b5ed7;
+font-weight:bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h2>Appointments</h2>
+</header>
+
+<table>
+
+<tr>
+<th>Patient ID</th>
+<th>Doctor ID</th>
+<th>Date</th>
+<th>Time</th>
+<th>Status</th>
+</tr>
+
+{% for a in appointments %}
+
+<tr>
+<td>{{ a.patient_id }}</td>
+<td>{{ a.doctor_id }}</td>
+<td>{{ a.appointment_date }}</td>
+<td>{{ a.appointment_time }}</td>
+<td>{{ a.status }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<div class="back">
+<a href="/patient_dashboard">Back to Dashboard</a>
+</div>
+
+</body>
+</html>

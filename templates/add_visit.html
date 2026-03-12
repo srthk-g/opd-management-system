@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Add Visit</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<h2 style="background:#0b5ed7;color:white;padding:15px;">Add Clinic Visit</h2>
+
+<div style="padding:40px;max-width:500px;">
+
+<form method="POST">
+
+Patient ID
+<input type="text" name="patient_id">
+
+<br><br>
+
+Doctor ID
+<input type="text" name="doctor_id">
+
+<br><br>
+
+Date
+<input type="date" name="date">
+
+<br><br>
+
+Diagnosis
+<input type="text" name="diagnosis">
+
+<br><br>
+
+Treatment
+<input type="text" name="treatment">
+
+<br><br>
+
+<button type="submit">Save Visit</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
